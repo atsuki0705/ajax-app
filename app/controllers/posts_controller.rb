@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
 
     def checked
+      # binding.pry
       post = Post.find(params[:id])
       # 設定したURLパラメーターから、既読したメモのidが渡されるように設定.
       # そのidを使用して該当するレコードを取得
