@@ -13,8 +13,12 @@ class PostsController < ApplicationController
     # Post.create(content: params[:content])
     # contentというカラムに、params[:content(new.htmlのform.text_field)]の情報を保存
     # redirect_to action: :index
+
+    
     post = Post.create(content: params[:content], checked: false)
     render json:{ post: post }
+
+
     end
 
 
