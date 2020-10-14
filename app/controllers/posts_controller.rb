@@ -14,4 +14,22 @@ class PostsController < ApplicationController
     # contentというカラムに、params[:content(new.htmlのform.text_field)]の情報を保存
     redirect_to action: :index
     end
+
+
+    def checked
+      post = Post.find(params[:id])
+      # 設定したURLパラメーターから、既読したメモのidが渡されるように設定.
+      # そのidを使用して該当するレコードを取得
+      if post.checked  # 既読回中を判断するif文
+        post.update(checked: false)
+        # updateというActiveRecordのメソッドを使用して更新
+      else
+        post.update(checked: true)
+      end
+  
+      item = Post.find(params[:id])
+      # 更新したレコードをitem = Post.find(params[:id])で取得し直し、
+      render json: { post: item }
+      # render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
+    end
 end
