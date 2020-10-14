@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # form_with url: "/posts", method: :post, local: true do |form|
   # 〜〜form_withの情報とルーティングとのつながり〜〜
   # url:"/posts"⇒(rails routes)VerbのPOST
-# method: ::post⇒(rails routes)URLPatternの/posts(.:format)
+  # method: ::post⇒(rails routes)URLPatternの/posts(.:format)
+  get 'posts/:id', to: 'posts#checked'
 end
