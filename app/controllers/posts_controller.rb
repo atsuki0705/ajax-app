@@ -40,3 +40,4 @@ class PostsController < ApplicationController
       # render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
     end
 end
+
