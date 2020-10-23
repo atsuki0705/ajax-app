@@ -27,11 +27,13 @@ class PostsController < ApplicationController
       post = Post.find(params[:id])
       # 設定したURLパラメーターから、既読したメモのidが渡されるように設定.
       # そのidを使用して該当するレコードを取得
-      if post.checked  # 既読回中を判断するif文
+      if post.checked  # 既読であるか否か判断するプロパティ
         post.update(checked: false)
         # updateというActiveRecordのメソッドを使用して更新
+        # 既読であれば「既読を解除するためにfalseへ変更
       else
         post.update(checked: true)
+        # 既読でなければ「既読にするためtrueへ変更
       end
   
       item = Post.find(params[:id])
